@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>رياض اللغة العربية | إشراف المعلم أ. علي دحان</title>
+    <link rel="stylesheet" href="css/style.css?v=20261028-1">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌿</text></svg>">
+</head>
+<body>
+
+    <!-- ==============================================
+         CINEMATIC OPENING INTRO (رياض اللغة العربية)
+         Featuring images from 'images for ali dahan'
+         ============================================== -->
+    <div id="intro-splash-screen" class="intro-splash-screen">
+        <div class="intro-ambient-particles"></div>
+        <button id="btn-intro-skip" class="intro-skip-btn" onclick="window.closeIntro(event)" title="تخطي العرض والدخول المباشر">
+            <span>تخطي العرض ✕</span>
+            <span style="font-size: 0.78rem; opacity: 0.85;">(أو اضغط Esc)</span>
+        </button>
+
+        <div class="intro-stage">
+            <!-- Animated 3D Images Showcase from Ali Dahan's Desktop Folder -->
+            <div class="intro-cards-showcase">
+                <div class="intro-img-card" onclick="window.closeIntro(event)" title="إعداد الطالب هادي الجد">
+                    <img src="images/img1_web.png" alt="الطالب هادي الجد يحمل حاسوبه في مكتبة المدرسة">
+                    <div class="intro-image-caption">إعداد الطالب: هادي الجد</div>
+                    <div class="card-shine-glimmer"></div>
+                </div>
+                <div class="intro-img-card" onclick="window.closeIntro(event)" title="إشراف الأستاذ علي دحان">
+                    <img src="images/img2_web.png" alt="الأستاذ علي دحان">
+                    <div class="intro-image-caption">إشراف: أ. علي دحان</div>
+                    <div class="card-shine-glimmer"></div>
+                </div>
+                <div class="intro-img-card school-logo-intro" onclick="window.closeIntro(event)" title="شعار مدارس منارات السهل">
+                    <img src="images/img3_web.png" alt="شعار مدارس منارات السهل: تعلم عصري، انتماء وطني">
+                    <div class="intro-image-caption">
+                        <strong>مدارس منارات السهل</strong>
+                        <span class="intro-school-vision">تعلم عصري... انتماء وطني.... </br> طلاب متميزون.</span>
+                    </div>
+                    <div class="card-shine-glimmer"></div>
+                </div>
+                <div class="intro-img-card" onclick="window.closeIntro(event)" title="مدير المدرسة الأستاذ حسين سلطان">
+                    <img src="images/img4_web.png" alt="مدير المدرسة الأستاذ حسين سلطان">
+                    <div class="intro-image-caption">مدير المدرسة: أ. حسين سلطان</div>
+                    <div class="card-shine-glimmer"></div>
+                </div>
+            </div>
+
+            <!-- Program Title Revelation -->
+            <div class="intro-title-group">
+                <div class="intro-eyebrow-pill">
+                    <span>✨</span>
+                    <span>واحة المعرفة والبيان والتعلم التفاعلي</span>
+                    <span>✨</span>
+                </div>
+
+                <h1 class="intro-grand-title">رِياضُ اللُّغَةِ العَرَبِيَّةِ</h1>
+                <p class="intro-subheading">رحلة استكشاف ممتعة في بحور الضاد، الألعاب، والقصص المشوقة</p>
+                <div class="intro-teacher-credit">
+                    <span>👨‍🏫</span>
+                    <span>بإشراف ورعاية المعلم المتميز: <strong>أ. علي دحان</strong></span>
+                </div>
+
+                <div class="mt-4">
+                    <button id="btn-intro-enter" class="intro-enter-btn" onclick="window.closeIntro(event)">
+                        🌿 ادخل إلى رياض اللغة العربية 🌿
+                    </button>
+                </div>
+                <div>
+                    <button id="btn-intro-skip-bottom" class="intro-skip-bottom-btn" onclick="window.closeIntro(event)">
+                        ⏩ تخطي ومتابعة السير فوراً
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Header -->
+    <header class="main-header">
+        <div class="header-inner">
+            <a href="index.html" class="logo-area" style="text-decoration: none;">
+                <div class="logo-badge" style="background: linear-gradient(135deg, #10b981, #06b6d4);">📖</div>
+                <div class="logo-text">
+                    <h1>رِياضُ اللُّغَةِ العَرَبِيَّةِ</h1>
+                    <p>بإشراف ورعاية المعلم المتميز <strong>أ. علي دحان</strong> 🌟</p>
+                </div>
+            </a>
+
+            <!-- Student Gamified HUD Bar -->
+            <div class="student-stats-hud">
+                <div class="header-user-avatar" id="header-user-avatar" title="اضغط لتغيير صورتك الرمزية">🦁</div>
+                <div>
+                    <div class="stat-chip points" id="header-user-points-wrap">
+                        <span>💰</span>
+                        <span id="header-user-points">850</span>
+                        <span>نقطة</span>
+                    </div>
+                </div>
+                <div class="stat-chip level">
+                    <span id="header-user-level">مستوى 3 (باحث شجاع)</span>
+                </div>
+                <div class="stat-chip streak">
+                    <span id="header-user-streak">5 يوم 🔥</span>
+                </div>
+                <div class="stat-chip" style="color: var(--primary);">
+                    <span id="header-user-badges-count">3 أوسمة 🎖️</span>
+                </div>
+            </div>
+
+            <div class="header-controls">
+                <button class="btn-icon" id="btn-toggle-sound" title="كتم/تشغيل الصوت">🔊</button>
+                <button class="btn btn-outline btn-sm" onclick="window.app.replayIntro()" title="إعادة تشغيل مقدمة رياض اللغة العربية">
+                    🎬 المقدمة
+                </button>
+                <a href="teacher.html" class="btn btn-outline btn-sm" title="بوابة المعلم أ. علي دحان">
+                    👨‍🏫 لوحة المعلم
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Navigation Bar -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-link-btn active">🏠 الرئيسية</a>
+            <a href="weekly.html" class="nav-link-btn">🌟 نشاط الأسبوع (أ. علي دحان)</a>
+            <a href="games.html" class="nav-link-btn">🎮 ألعاب اللغة العربية</a>
+            <a href="reading.html" class="nav-link-btn">📚 أسئلة كتاب القراءة</a>
+            <a href="workbook.html" class="nav-link-btn">🧠 كراسة التدريبات</a>
+            <a href="stories.html" class="nav-link-btn">📖 حكايات اللغة العربية</a>
+            <a href="cinema.html" class="nav-link-btn">🎬 سينما اللغة العربية</a>
+            <a href="leaderboard.html" class="nav-link-btn">🏆 صدارة المتميزين وطالب الشهر</a>
+            <a href="teacher.html" class="nav-link-btn">👨‍🏫 إدارة المعلم</a>
+        </div>
+    </nav>
+
+    <!-- App Main Container -->
+    <main class="container">
+
+        <!-- ==============================================
+             HOME VIEW
+             ============================================== -->
+        <section id="view-home" class="app-view-section">
+            <!-- Hero Banner -->
+            <div class="hero-banner" style="background: linear-gradient(135deg, #064e3b 0%, #047857 50%, #0284c7 100%);">
+                <div class="hero-content">
+                    <div class="teacher-badge-pill" style="background: rgba(255,255,255,0.25);">
+                        <span>👨‍🏫</span>
+                        <span>مرحباً بكم في «رِياضُ اللُّغَةِ العَرَبِيَّةِ» مع المعلم أ. علي دحان</span>
+                    </div>
+                    <h2 class="hero-title">واحة لغة الضاد والإبداع والتعلم الممتع!</h2>
+                    <p class="hero-subtitle">
+                        هنا نصنع المجد بالعلم والبيان، نلعب ألعاب الذكاء اللغوي، نكتشف، نعيش أروع القصص، ونشاهد أمتع الأفلام التعليمية. شارك في نشاط الأسبوع لتتوج بلقب طالب الشهر المثالي!
+                    </p>
+                    <div class="hero-actions">
+                        <a href="weekly.html" class="btn btn-gold btn-lg">
+                            🚀 انطلق إلى نشاط هذا الأسبوع (+150 نقطة)
+                        </a>
+                        <a href="games.html" class="btn btn-outline btn-lg" style="color:white; border-color:white;">
+                            🎯 العب وتحدى عقلك
+                        </a>
+                        <button class="btn btn-outline btn-lg" style="color:white; border-color:white;" onclick="window.app.replayIntro()">
+                            🎬 مشاهدة شاشة الافتتاح
+                        </button>
+                    </div>
+                </div>
+                <div class="hero-graphics">
+                    📚
+                </div>
+            </div>
+
+            <!-- Spotlight: Student of the Month Teaser -->
+            <div id="home-som-spotlight">
+                <!-- Injected dynamically via app.renderHomeSpotlight() -->
+            </div>
+
+            <!-- Featured Gallery: Images of Ali Dahan -->
+            <div class="ali-dahan-gallery-wrap">
+                <div class="flex justify-between items-center flex-wrap gap-2">
+                    <div>
+                            <h3 class="font-extrabold text-xl text-primary flex items-center gap-2">
+                            <span>📸</span>
+                            <span>فريق المدرسة وشعارها</span>
+                        </h3>
+                        <p class="text-sm text-muted">الطالب والمعلم وإدارة المدرسة وهوية منارات السهل.</p>
+                    </div>
+                    <span class="meta-tag">4 صور 🌟</span>
+                </div>
+
+                <div class="gallery-grid">
+                    <div class="gallery-item-card">
+                        <div class="gallery-thumb-box">
+                            <img src="images/image.png" alt="الطالب هادي الجد يحمل حاسوبه في مكتبة المدرسة">
+                        </div>
+                        <div class="gallery-caption">إعداد الطالب: هادي الجد</div>
+                        <p>طالب مبدع يحبتوظيفموهبتهالتفنية في مساعدةالادارةلتطوير المدرسة</p>
+                    </div>
+                    <div class="gallery-item-card">
+                        <div class="gallery-thumb-box">
+                            <img src="images/image%20copy.png" alt="الأستاذ علي دحان">
+                        </div>
+                        <div class="gallery-caption">إشراف: أ. علي دحان</div>
+                    </div>
+                    <div class="gallery-item-card">
+                        <div class="gallery-thumb-box school-logo-thumb">
+                            <img src="images/image%20copy%202.png" alt="شعار مدارس منارات السهل">
+                        </div>
+                        <div class="gallery-caption">
+                            <strong>مدارس منارات السهل</strong>
+                            <span class="school-vision-caption">تعلم عصري... انتماء وطني.</span>
+                        </div>
+                    </div>
+                    <div class="gallery-item-card">
+                        <div class="gallery-thumb-box">
+                            <img src="images/image%20copy%203.png" alt="مدير المدرسة الأستاذ حسين سلطان">
+                        </div>
+                        <div class="gallery-caption">مدير المدرسة: أ. حسين سلطان</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Portals Grid to All Pages -->
+            <h3 class="font-bold text-xl mb-4">✨ جميع أقسام وصفحات المنصة المتاحة تحت خدمتك:</h3>
+            <div class="portals-grid">
+                <!-- Portal 1: Weekly Quest -->
+                <a href="weekly.html" class="portal-card weekly" style="text-decoration: none; color: inherit;">
+                    <div>
+                        <div class="portal-icon-box">🌟</div>
+                        <h4 class="portal-title">نشاط الأسبوع الخاص</h4>
+                        <p class="portal-desc">مهمة إبداعية يضعها أستاذكم علي دحان كل أسبوع لاختبار مهاراتكم مع عد تنازلي وتسليم إلكتروني مباشر.</p>
+                    </div>
+                    <div class="portal-jump-link">
+                        <span>دخول صفحة النشاط والتسليم</span>
+                        <span>←</span>
+                    </div>
+                </a>
+
+                <!-- Portal 2: Games -->
+                <a href="games.html" class="portal-card games" style="text-decoration: none; color: inherit;">
+                    <div>
+                        <div class="portal-icon-box">🎮</div>
+                        <h4 class="portal-title">تحديات اللغة العربية</h4>
+                        <p class="portal-desc">ألعاب وأسئلة تفاعلية مستوحاة حصراً من دروس كتاب القراءة وكراسة التدريبات.</p>
+                    </div>
+                    <div class="portal-jump-link">
+                        <span>دخول صفحة الألعاب فوراً</span>
+                        <span>←</span>
+                    </div>
+                </a>
+
+                <a href="reading.html" class="portal-card weekly" style="text-decoration: none; color: inherit;">
+                    <div>
+                        <div class="portal-icon-box">📚</div>
+                        <h4 class="portal-title">بنك أسئلة كتاب القراءة</h4>
+                        <p class="portal-desc">تدرّب على الفهم والمفردات والاستنتاج والقيم في دروس الكتاب، مع نتيجة محفوظة لكل درس.</p>
+                    </div>
+                    <div class="portal-jump-link">
+                        <span>ابدأ التدريب على دروس الكتاب</span>
+                        <span>←</span>
+                    </div>
+                </a>
+
+                <a href="workbook.html" class="portal-card games" style="text-decoration: none; color: inherit;">
+                    <div>
+                        <div class="portal-icon-box">🧠</div>
+                        <h4 class="portal-title">مختبر كراسة التدريبات</h4>
+                        <p class="portal-desc">تدرب على الاستماع، إعراب الفعل الماضي، والألف اللينة عبر الاختبارات والألعاب والقصص التفاعلية.</p>
+                    </div>
+                    <div class="portal-jump-link">
+                        <span>افتح مختبر التدريبات</span>
+                        <span>←</span>
+                    </div>
+                </a>
+
+                <!-- Portal 3: Stories -->
+                <a href="stories.html" class="portal-card stories" style="text-decoration: none; color: inherit;">
+                    <div>
+                        <div class="portal-icon-box">📖</div>
+                        <h4 class="portal-title">حكايات اللغة العربية</h4>
+                        <p class="portal-desc">مغامرات تفاعلية في الحروف والنحو والمفردات والقراءة، مع سرد صوتي واختيارات تغيّر مسار القصة.</p>
+                    </div>
+                    <div class="portal-jump-link">
+                        <span>دخول واحة القصص</span>
+                        <span>←</span>
+                    </div>
+                </a>
+
+                <!-- Portal 4: Cinema -->
+                <a href="cinema.html" class="portal-card cinema" style="text-decoration: none; color: inherit;">
+                    <div>
+                        <div class="portal-icon-box">🎬</div>
+                        <h4 class="portal-title">سينما اللغة العربية</h4>
+                        <p class="portal-desc">فيلم تعليمي مرتبط بموضوعات كراسة التدريبات اللغوية.</p>
+                    </div>
+                    <div class="portal-jump-link">
+                        <span>دخول سينما اللغة العربية</span>
+                        <span>←</span>
+                    </div>
+                </a>
+
+                <!-- Portal 5: Leaderboard & Student of the Month -->
+                <a href="leaderboard.html" class="portal-card weekly" style="text-decoration: none; color: inherit;">
+                    <div>
+                        <div class="portal-icon-box">🏆</div>
+                        <h4 class="portal-title">لوحة الشرف وصدارة الفرسان</h4>
+                        <p class="portal-desc">منصة تتويج الأوائل (Podium)، طالب الشهر المثالي، إرسال التصفيق، واستخراج وطباعة شهادة التفوق الرسمية.</p>
+                    </div>
+                    <div class="portal-jump-link">
+                        <span>دخول لوحة الشرف</span>
+                        <span>←</span>
+                    </div>
+                </a>
+
+                <!-- Portal 6: Teacher Panel -->
+                <a href="teacher.html" class="portal-card stories" style="text-decoration: none; color: inherit;">
+                    <div>
+                        <div class="portal-icon-box">👨‍🏫</div>
+                        <h4 class="portal-title">لوحة تحكم المعلم (أ. علي دحان)</h4>
+                        <p class="portal-desc">إضافة نشاط أسبوعي جديد، تتويج طالب الشهر، تعديل شهادات التقدير، ومنح نقاط شرف فورية لأي طالب.</p>
+                    </div>
+                    <div class="portal-jump-link">
+                        <span>دخول بوابة المعلم</span>
+                        <span>←</span>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Avatar Picker Modal -->
+    <div id="avatar-modal" class="modal-backdrop hidden">
+        <div class="modal-dialog text-center">
+            <button class="modal-close-btn" id="btn-close-avatar-modal">&times;</button>
+            <h3 class="text-xl font-bold mb-2">اختر فارسك أو شخصيتك الرمزية</h3>
+            <p class="text-muted mb-4">ستظهر هذه الشخصية بجانب اسمك في لوحة الشرف ونشاط الأسبوع</p>
+            <div class="avatar-grid" id="avatar-options-grid"></div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/audio.js?v=20261028-1"></script>
+    <script src="js/confetti.js?v=20261028-1"></script>
+    <script src="js/data.js?v=20261028-1"></script>
+    <script src="js/reading-data.js?v=20261101-2"></script>
+    <script src="js/workbook-data.js?v=20261101-3"></script>
+    <script src="js/book-curriculum.js?v=20261101-1"></script>
+    <script src="js/storage.js?v=20261101-3"></script>
+    <script src="js/games.js?v=20261028-1"></script>
+    <script src="js/stories.js?v=20261028-1"></script>
+    <script src="js/cinema.js?v=20261028-1"></script>
+    <script src="js/leaderboard.js?v=20261028-1"></script>
+    <script src="js/teacher.js?v=20261101-2"></script>
+    <script src="js/app.js?v=20261028-1"></script>
+</body>
+</html>

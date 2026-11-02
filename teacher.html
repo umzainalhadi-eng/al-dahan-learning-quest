@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إدارة رياض اللغة العربية | المشرف العام أ. مؤمن & المعلم أ. علي دحان</title>
+    <link rel="stylesheet" href="css/style.css?v=20261028-1">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👨‍🏫</text></svg>">
+</head>
+<body>
+
+    <!-- Main Header -->
+    <header class="main-header">
+        <div class="header-inner">
+            <a href="index.html" class="logo-area" style="text-decoration: none;">
+                <div class="logo-badge" style="background: linear-gradient(135deg, #10b981, #06b6d4);">📖</div>
+                <div class="logo-text">
+                    <h1>رِياضُ اللُّغَةِ العَرَبِيَّةِ</h1>
+                    <p>مدارس منارات السهل الأهلية | إشراف المعلم <strong>أ. علي دحان</strong> والمشرف العام <strong>أ. مؤمن</strong></p>
+                </div>
+            </a>
+
+            <div class="header-controls">
+                <a href="index.html" class="btn btn-outline btn-sm">
+                    🏠 الرئيسية
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Navigation Bar -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-link-btn">🏠 الرئيسية</a>
+            <a href="weekly.html" class="nav-link-btn">🌟 نشاط الأسبوع (أ. علي دحان)</a>
+            <a href="games.html" class="nav-link-btn">🎮 ألعاب اللغة العربية</a>
+            <a href="reading.html" class="nav-link-btn">📚 أسئلة كتاب القراءة</a>
+            <a href="workbook.html" class="nav-link-btn">🧠 كراسة التدريبات</a>
+            <a href="stories.html" class="nav-link-btn">📖 حكايات اللغة العربية</a>
+            <a href="cinema.html" class="nav-link-btn">🎬 سينما اللغة العربية</a>
+            <a href="leaderboard.html" class="nav-link-btn">🏆 صدارة المتميزين وطالب الشهر</a>
+            <a href="teacher.html" class="nav-link-btn active">👨‍🏫 إدارة المعلم والصفوف</a>
+        </div>
+    </nav>
+
+    <!-- App Main Container -->
+    <main class="container">
+        <!-- Auth Wall -->
+        <div id="teacher-auth-box" class="quiz-box-card text-center" style="max-width: 520px; margin: 3rem auto;">
+            <div style="font-size: 3.5rem; margin-bottom: 1rem;">🔐</div>
+            <h2 class="text-2xl font-bold mb-2">بوابة الإدارة المدرسية والصفوف</h2>
+            <p class="text-muted mb-4">سجّل الدخول بحساب المعلم المعتمد في Supabase للوصول إلى بيانات الطلاب.</p>
+            <form id="teacher-login-form">
+                <div class="form-group mb-3">
+                    <input type="email" id="input-teacher-email" class="form-control" placeholder="البريد الإلكتروني للمعلم" autocomplete="username" required>
+                </div>
+                <div class="form-group mb-4">
+                    <input type="password" id="input-teacher-password" class="form-control" placeholder="كلمة المرور" autocomplete="current-password" required>
+                </div>
+                <p id="teacher-login-status" class="text-sm font-bold mb-3" role="status" aria-live="polite"></p>
+                <button type="submit" class="btn btn-primary btn-lg w-full" id="btn-submit-teacher-login">
+                    دخول آمن إلى لوحة المعلم ←
+                </button>
+            </form>
+        </div>
+
+        <!-- Authorized Content -->
+        <div id="teacher-dashboard-content" class="hidden">
+            <div class="mb-6 flex justify-between items-center flex-wrap gap-3">
+                <div>
+                    <h2 class="text-3xl font-extrabold text-primary mb-1">لوحة الإدارة التعليمية ونظام الصفوف</h2>
+                    <p class="text-muted">صلاحيات المشرف العام (أ. مؤمن) وتعيين المعلمين، واختيار الأنشطة الأسبوعية وإضافة الطلاب (أ. علي دحان)</p>
+                </div>
+                <div class="flex gap-2">
+                    <button class="btn btn-outline" id="btn-teacher-signout">🔒 تسجيل الخروج</button>
+                    <a href="index.html" class="btn btn-primary">عرض المنصة كطالب</a>
+                </div>
+            </div>
+
+            <section class="quiz-box-card mb-6" id="teacher-classroom">
+                <div class="flex justify-between items-center flex-wrap gap-2 mb-3">
+                    <div>
+                        <h3 class="text-2xl font-extrabold">📬 صندوق إجابات الطلاب ورسائلهم</h3>
+                        <p class="text-muted">اقرأ إجابات كل طالب، أرسل رداً، وأضف تفاعلاً إلى رسالته.</p>
+                    </div>
+                    <button class="btn btn-outline btn-sm" id="teacher-classroom-refresh" type="button">🔄 تحديث الرسائل</button>
+                </div>
+                <p id="teacher-classroom-status" class="text-sm font-bold mb-3" role="status" aria-live="polite"></p>
+                <div id="teacher-classroom-threads" aria-live="polite"></div>
+            </section>
+
+            <!-- Role Section 1: المشرف العام (أ. مؤمن) -->
+            <div class="gold-card-wrapper mb-6" style="padding: 1.75rem; border-color: #0284c7; background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);">
+                <div class="flex items-center gap-3 mb-4">
+                    <span style="font-size: 2.5rem;">👔</span>
+                    <div>
+                        <h3 class="font-extrabold text-xl text-sky-900">صلاحيات المشرف العام: أ. مؤمن</h3>
+                        <p class="text-sm text-sky-800">تعيين كل معلم على صف معين ومتابعة صفوف مدارس منارات السهل</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
+                    <!-- Assign Teacher Form -->
+                    <div class="bg-surface p-4 rounded-xl border border-[var(--border)]" style="background: white;">
+                        <h4 class="font-bold mb-3 text-primary">📌 تعيين معلم على صف محدد:</h4>
+                        <form id="form-moamen-assign-teacher">
+                            <div class="mb-3">
+                                <label class="form-label text-sm font-bold">اختر المعلم:</label>
+                                <select id="assign-teacher-select" class="form-control">
+                                    <option value="tch-1">أ. علي دحان (لغتي الجميلة ورياض اللغة)</option>
+                                    <option value="tch-2">أ. محمد العتيبي (الرياضيات والعلوم)</option>
+                                    <option value="tch-3">أ. فهد الشمري (الصفوف الأولية)</option>
+                                    <option value="tch-4">أ. سلطان المالكي (التربية الإسلامية)</option>
+                                </select>
+                            </div>
+                            <div class="mb-4">
+                                <label class="form-label text-sm font-bold">تعيينه مسؤولاً عن صف:</label>
+                                <select id="assign-class-select" class="form-control">
+                                    <option value="cls-5">الصف الخامس (أ) المتميز</option>
+                                    <option value="cls-4">الصف الرابع الابتدائي</option>
+                                    <option value="cls-1">الصف الأول الابتدائي</option>
+                                    <option value="cls-2">الصف الثاني الابتدائي</option>
+                                    <option value="cls-3">الصف الثالث الابتدائي</option>
+                                    <option value="cls-6">الصف السادس الابتدائي</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-full" style="background: #0284c7;">
+                                ✅ اعتماد التعيين بواسطة المشرف أ. مؤمن
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Current Classes List -->
+                    <div class="bg-surface p-4 rounded-xl border border-[var(--border)]" style="background: white;">
+                        <h4 class="font-bold mb-3 text-primary">🏫 الصفوف الدراسية والمعلمون المعينون:</h4>
+                        <div id="moamen-classes-list" class="flex flex-col gap-2">
+                            <!-- Populated dynamically via teacherManager.renderClassesTable() -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Role Section 2: المعلم (أ. علي دحان) -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 1.75rem;">
+                <!-- Card 1: 12 Ready Activities Switcher -->
+                <div class="quiz-box-card" style="margin: 0; max-width: 100%; border: 2px solid #10b981;">
+                    <div class="flex items-center gap-2 mb-3">
+                        <span style="font-size: 2rem;">🌟</span>
+                        <div>
+                            <h3 class="font-extrabold text-xl text-emerald-800">اختيار نشاط من دروس الكتابين</h3>
+                            <p class="text-xs text-muted">صلاحية المعلم أ. علي دحان لاختيار النشاط الأسبوعي الفعال</p>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="form-label text-sm font-bold">اختر النشاط الذي يظهر للطلاب هذا الأسبوع:</label>
+                        <select id="select-active-weekly-activity" class="form-control" style="font-weight: 700; color: #065f46; border-color: #10b981;"></select>
+                    </div>
+
+                    <p class="text-sm text-muted mb-4">
+                        💡 بمجرد اختيار النشاط، سيظهر فوراً في صفحة نشاط الأسبوع مع الأسئلة التفاعلية (اختيارات + صح وخطأ + تحدي البيان) مع تحديث لائحة الصدارة التلقائية له.
+                    </p>
+                    <a href="weekly.html" class="btn btn-outline w-full text-center">معاينة صفحة النشاط الأسبوعي ←</a>
+                </div>
+
+                <!-- Card 2: Teacher Adds Students to his Class -->
+                <div class="quiz-box-card" style="margin: 0; max-width: 100%; border: 2px solid #4f46e5;">
+                    <div class="flex items-center gap-2 mb-3">
+                        <span style="font-size: 2rem;">👨‍🎓</span>
+                        <div>
+                            <h3 class="font-extrabold text-xl text-primary">إضافة طالب جديد وإنشاء حسابه</h3>
+                            <p class="text-xs text-muted">المعلم يضيف طلاب صفه، ولكل طالب حسابه الخاص لحفظ النقاط</p>
+                        </div>
+                    </div>
+
+                    <form id="form-teacher-add-student">
+                        <div class="mb-3">
+                            <label class="form-label text-sm font-bold">اسم الطالب ثلاثياً:</label>
+                            <input type="text" id="new-std-name" class="form-control" placeholder="مثال: فيصل بن عبدالعزيز..." required>
+                        </div>
+                        <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 0.75rem; margin-bottom: 0.75rem;">
+                            <div>
+                                <label class="form-label text-sm font-bold">الصف والفصل:</label>
+                                <select id="new-std-class" class="form-control">
+                                    <option value="cls-5">الصف الخامس (أ) المتميز</option>
+                                    <option value="cls-4">الصف الرابع الابتدائي</option>
+                                    <option value="cls-6">الصف السادس الابتدائي</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="form-label text-sm font-bold">الشخصية الرمزية:</label>
+                                <input type="text" id="new-std-avatar" class="form-control text-center" value="🦁">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-full">
+                            + إضافة الطالب وتفعيل حسابه فوراً
+                        </button>
+                    </form>
+
+                    <hr class="my-4 border-[var(--border)]">
+                    <h4 class="font-bold text-sm mb-2">قائمة طلاب الصف وحساباتهم (التبديل للحساب):</h4>
+                    <div id="teacher-students-list" class="flex flex-col gap-2" style="max-height: 250px; overflow-y: auto;">
+                        <!-- Populated dynamically via teacherManager.renderStudentsList() -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="js/audio.js?v=20261028-1"></script>
+    <script src="js/confetti.js?v=20261028-1"></script>
+    <script src="js/data.js?v=20261028-1"></script>
+    <script src="js/reading-data.js?v=20261101-2"></script>
+    <script src="js/workbook-data.js?v=20261101-3"></script>
+    <script src="js/book-curriculum.js?v=20261101-1"></script>
+    <script src="js/storage.js?v=20261101-3"></script>
+    <script src="js/games.js?v=20261028-1"></script>
+    <script src="js/stories.js?v=20261028-1"></script>
+    <script src="js/cinema.js?v=20261028-1"></script>
+    <script src="js/leaderboard.js?v=20261028-1"></script>
+    <script src="js/teacher.js?v=20261101-2"></script>
+    <script src="js/app.js?v=20261028-1"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase-config.js?v=20261101-1"></script>
+    <script src="js/classroom.js?v=20261101-3"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const authBox = document.getElementById('teacher-auth-box');
+            const dashContent = document.getElementById('teacher-dashboard-content');
+            const loginForm = document.getElementById('teacher-login-form');
+            const status = document.getElementById('teacher-login-status');
+            if (!window.classroomService.isConfigured()) {
+                window.classroomService.setStatus(status, 'أضف رابط Supabase ومفتاح anon إلى js/supabase-config.js لتفعيل تسجيل الدخول.', true);
+            }
+
+            const showDashboard = async () => {
+                    authBox.classList.add('hidden');
+                    dashContent.classList.remove('hidden');
+                    window.teacherManager.setupTeacherPanel();
+                    window.teacherManager.setupMoamenPanel();
+                    window.teacherManager.renderStudentsList();
+                    window.teacherManager.renderClassesTable();
+                    await window.classroomService.initTeacherInbox();
+                    if (window.soundEngine) window.soundEngine.levelUp();
+            };
+
+            loginForm.addEventListener('submit', async event => {
+                event.preventDefault();
+                const button = document.getElementById('btn-submit-teacher-login');
+                button.disabled = true;
+                window.classroomService.setStatus(status, 'جارٍ التحقق من الحساب...');
+                try {
+                    await window.classroomService.loginTeacher(
+                        document.getElementById('input-teacher-email').value.trim(),
+                        document.getElementById('input-teacher-password').value
+                    );
+                    await showDashboard();
+                } catch (error) {
+                    console.error('تعذر تسجيل دخول المعلم.', error);
+                    window.classroomService.setStatus(status, `تعذر تسجيل الدخول: ${error.message}`, true);
+                } finally {
+                    button.disabled = false;
+                }
+            });
+
+            document.getElementById('teacher-classroom-refresh')?.addEventListener('click', () =>
+                window.classroomService.renderTeacherThreads()
+            );
+            document.getElementById('btn-teacher-signout')?.addEventListener('click', async () => {
+                try {
+                    await window.classroomService.signOutTeacher();
+                    location.reload();
+                } catch (error) {
+                    console.error('تعذر تسجيل خروج المعلم.', error);
+                    window.classroomService.setStatus(
+                        document.getElementById('teacher-classroom-status'),
+                        `تعذر تسجيل الخروج: ${error.message}`,
+                        true
+                    );
+                }
+            });
+
+            window.classroomService.getTeacherSession().then(user => {
+                if (user) showDashboard();
+            }).catch(error => {
+                console.error('تعذر استعادة جلسة المعلم.', error);
+                window.classroomService.setStatus(status, `تعذر استعادة الجلسة: ${error.message}`, true);
+            });
+        });
+    </script>
+</body>
+</html>

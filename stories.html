@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حكايات اللغة العربية | رياض اللغة العربية - أ. علي دحان</title>
+    <link rel="stylesheet" href="css/style.css?v=20261028-1">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📖</text></svg>">
+</head>
+<body>
+
+    <!-- Main Header -->
+    <header class="main-header">
+        <div class="header-inner">
+            <a href="index.html" class="logo-area" style="text-decoration: none;">
+                <div class="logo-badge" style="background: linear-gradient(135deg, #10b981, #06b6d4);">📖</div>
+                <div class="logo-text">
+                    <h1>رِياضُ اللُّغَةِ العَرَبِيَّةِ</h1>
+                    <p>بإشراف ورعاية المعلم المتميز <strong>أ. علي دحان</strong> 🌟</p>
+                </div>
+            </a>
+
+            <!-- Student Gamified HUD Bar -->
+            <div class="student-stats-hud">
+                <div class="header-user-avatar" id="header-user-avatar" title="اضغط لتغيير صورتك الرمزية">🦁</div>
+                <div>
+                    <div class="stat-chip points" id="header-user-points-wrap">
+                        <span>💰</span>
+                        <span id="header-user-points">850</span>
+                        <span>نقطة</span>
+                    </div>
+                </div>
+                <div class="stat-chip level">
+                    <span id="header-user-level">مستوى 3</span>
+                </div>
+                <div class="stat-chip streak">
+                    <span id="header-user-streak">5 يوم 🔥</span>
+                </div>
+                <div class="stat-chip" style="color: var(--primary);">
+                    <span id="header-user-badges-count">3 أوسمة 🎖️</span>
+                </div>
+            </div>
+
+            <div class="header-controls">
+                <button class="btn-icon" id="btn-toggle-sound" title="كتم/تشغيل الصوت">🔊</button>
+                <a href="teacher.html" class="btn btn-outline btn-sm" title="بوابة المعلم أ. علي دحان">
+                    👨‍🏫 لوحة المعلم
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Navigation Bar -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-link-btn">🏠 الرئيسية</a>
+            <a href="weekly.html" class="nav-link-btn">🌟 نشاط الأسبوع (أ. علي دحان)</a>
+            <a href="games.html" class="nav-link-btn">🎮 ألعاب اللغة العربية</a>
+            <a href="reading.html" class="nav-link-btn">📚 أسئلة كتاب القراءة</a>
+            <a href="workbook.html" class="nav-link-btn">🧠 كراسة التدريبات</a>
+            <a href="stories.html" class="nav-link-btn active">📖 حكايات اللغة العربية</a>
+            <a href="cinema.html" class="nav-link-btn">🎬 سينما اللغة العربية</a>
+            <a href="leaderboard.html" class="nav-link-btn">🏆 صدارة المتميزين وطالب الشهر</a>
+            <a href="teacher.html" class="nav-link-btn">👨‍🏫 إدارة المعلم</a>
+        </div>
+    </nav>
+
+    <!-- App Main Container -->
+    <main class="container">
+        <!-- Overview Grid -->
+        <div id="stories-overview">
+            <div class="mb-6 flex justify-between items-center flex-wrap gap-3">
+                <div>
+                    <h2 class="text-3xl font-extrabold text-primary mb-1">📖 حكايات اللغة العربية التفاعلية</h2>
+                    <p class="text-muted">قصص تفاعلية مستوحاة من موضوعات كراسة التدريبات اللغوية.</p>
+                </div>
+                <a href="index.html" class="btn btn-outline">← العودة للرئيسية</a>
+            </div>
+            <div class="stories-grid" id="stories-grid">
+                <!-- Populated dynamically via storiesManager.renderStoryList() -->
+            </div>
+        </div>
+
+        <!-- Story Reader View -->
+        <div id="story-reader-view" class="hidden">
+            <div class="story-reader-card">
+                <div class="flex justify-between items-center mb-4">
+                    <button class="btn btn-outline btn-sm" onclick="window.storiesManager.closeStory()">
+                        ← العودة لقائمة القصص
+                    </button>
+                    <span class="meta-tag" id="reader-story-category">مغامرة</span>
+                    <span class="text-sm font-bold text-muted" id="reader-progress-info">المشهد 1</span>
+                </div>
+
+                <h2 class="text-2xl font-extrabold mb-4" id="reader-story-title">عنوان القصة</h2>
+
+                <!-- Illustrated scene canvas -->
+                <div class="story-canvas-box">
+                    <canvas id="story-illustration-canvas" width="850" height="300" style="width: 100%; height: 100%;"></canvas>
+                </div>
+
+                <!-- Chapter Text -->
+                <div class="story-text-container">
+                    <p id="reader-chapter-text"></p>
+                </div>
+
+                <!-- Voice Narration Button -->
+                <div class="mb-4">
+                    <button class="btn btn-outline" id="btn-narrate-story" onclick="window.storiesManager.toggleNarration()">
+                        🔊 استمع للقصة بصوت الأستاذ
+                    </button>
+                </div>
+
+                <!-- Decision Branching -->
+                <div id="reader-decisions-container"></div>
+
+                <!-- Reflection Question at End -->
+                <div id="reader-reflection-box" class="hidden"></div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Avatar Picker Modal -->
+    <div id="avatar-modal" class="modal-backdrop hidden">
+        <div class="modal-dialog text-center">
+            <button class="modal-close-btn" id="btn-close-avatar-modal">&times;</button>
+            <h3 class="text-xl font-bold mb-2">اختر فارسك أو شخصيتك الرمزية</h3>
+            <p class="text-muted mb-4">ستظهر هذه الشخصية بجانب اسمك في لوحة الشرف ونشاط الأسبوع</p>
+            <div class="avatar-grid" id="avatar-options-grid"></div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/audio.js?v=20261028-1"></script>
+    <script src="js/confetti.js?v=20261028-1"></script>
+    <script src="js/data.js?v=20261028-1"></script>
+    <script src="js/reading-data.js?v=20261101-2"></script>
+    <script src="js/workbook-data.js?v=20261101-3"></script>
+    <script src="js/book-curriculum.js?v=20261101-1"></script>
+    <script src="js/storage.js?v=20261101-3"></script>
+    <script src="js/games.js?v=20261028-1"></script>
+    <script src="js/stories.js?v=20261028-1"></script>
+    <script src="js/cinema.js?v=20261028-1"></script>
+    <script src="js/leaderboard.js?v=20261028-1"></script>
+    <script src="js/teacher.js?v=20261101-2"></script>
+    <script src="js/app.js?v=20261028-1"></script>
+</body>
+</html>

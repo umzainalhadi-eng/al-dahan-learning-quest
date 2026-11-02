@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بنك أسئلة كتاب القراءة | رياض اللغة العربية</title>
+    <link rel="stylesheet" href="css/style.css?v=20261101-2">
+</head>
+<body>
+    <header class="main-header">
+        <div class="header-inner">
+            <a href="index.html" class="logo-area" style="text-decoration:none">
+                <div class="logo-badge">📖</div>
+                <div class="logo-text">
+                    <h1>رِياضُ اللُّغَةِ العَرَبِيَّةِ</h1>
+                    <p>بنك أسئلة كتاب القراءة للصف الخامس</p>
+                </div>
+            </a>
+            <a href="index.html" class="btn btn-outline btn-sm">🏠 الرئيسية</a>
+        </div>
+    </header>
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-link-btn">🏠 الرئيسية</a>
+            <a href="weekly.html" class="nav-link-btn">🌟 نشاط الأسبوع</a>
+            <a href="games.html" class="nav-link-btn">🎮 الألعاب</a>
+            <a href="reading.html" class="nav-link-btn active">📚 أسئلة كتاب القراءة</a>
+            <a href="workbook.html" class="nav-link-btn">🧠 كراسة التدريبات</a>
+            <a href="stories.html" class="nav-link-btn">📖 القصص</a>
+            <a href="cinema.html" class="nav-link-btn">🎬 السينما</a>
+            <a href="teacher.html" class="nav-link-btn">👨‍🏫 لوحة المعلم</a>
+        </div>
+    </nav>
+    <main class="container">
+        <section class="hero-banner mb-6" style="background:linear-gradient(135deg,#075985,#0891b2,#10b981)">
+            <div class="hero-content">
+                <h2 class="hero-title">📚 بنك أسئلة كتاب القراءة</h2>
+                <p class="hero-subtitle">تدرّب على الفهم والمفردات والاستنتاج والقيم في دروس الكتاب. هذه أسئلة تعليمية أصلية وليست نقلاً حرفياً من صفحات الكتاب.</p>
+                <button id="reading-all-challenge" class="btn btn-gold btn-lg">🏁 ابدأ التحدي الشامل</button>
+            </div>
+        </section>
+        <section id="reading-lessons-view">
+            <h2 class="text-2xl font-extrabold mb-4">اختر درساً للتدريب</h2>
+            <div id="reading-lessons-grid" class="portals-grid"></div>
+        </section>
+        <section id="reading-quiz-view" class="hidden">
+            <div class="quiz-box-card" style="max-width:820px;margin:2rem auto">
+                <div class="flex justify-between items-center flex-wrap gap-2 mb-4">
+                    <button id="reading-back" class="btn btn-outline btn-sm">← قائمة الدروس</button>
+                    <span id="reading-question-tag" class="meta-tag"></span>
+                    <span id="reading-question-progress" class="text-sm font-bold text-muted"></span>
+                </div>
+                <h2 id="reading-quiz-title" class="text-xl font-extrabold mb-3"></h2>
+                <p id="reading-timer" class="hidden text-danger font-bold mb-3" aria-live="polite"></p>
+                <div style="height:8px;background:var(--border);border-radius:99px;overflow:hidden" class="mb-4">
+                    <div id="reading-progress-fill" style="height:100%;width:0;background:var(--success);transition:width .2s"></div>
+                </div>
+                <h3 id="reading-question-text" class="text-xl font-bold mb-4" style="line-height:1.8"></h3>
+                <div id="reading-options" class="grid gap-3"></div>
+                <p id="reading-feedback" aria-live="polite"></p>
+                <button id="reading-check" class="btn btn-primary mt-3" type="button">تحقق من الإجابة</button>
+                <button id="reading-next" class="btn btn-primary mt-3 hidden" type="button">السؤال التالي</button>
+            </div>
+        </section>
+        <section id="reading-complete-view" class="hidden">
+            <div class="quiz-box-card text-center" style="max-width:620px;margin:2rem auto">
+                <div style="font-size:3rem">🏅</div>
+                <h2 class="text-2xl font-extrabold">انتهى التحدي!</h2>
+                <p id="reading-score" class="text-3xl font-extrabold text-primary my-4"></p>
+                <p id="reading-result-message" class="text-lg"></p>
+                <div class="flex justify-center gap-2 flex-wrap mt-4">
+                    <button id="reading-retry" class="btn btn-primary">🔁 أعد التحدي</button>
+                    <button id="reading-home" class="btn btn-outline">📚 اختر درساً آخر</button>
+                    <a href="weekly.html" class="btn btn-outline">💬 رسائلي للمعلم</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="js/audio.js?v=20261101-1"></script>
+    <script src="js/confetti.js?v=20261101-1"></script>
+    <script src="js/reading-data.js?v=20261101-2"></script>
+    <script src="js/reading.js?v=20261101-5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase-config.js?v=20261101-1"></script>
+    <script src="js/classroom.js?v=20261101-3"></script>
+</body>
+</html>

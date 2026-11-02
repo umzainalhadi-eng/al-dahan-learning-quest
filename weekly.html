@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نشاط الأسبوع | رياض اللغة العربية - أ. علي دحان</title>
+    <link rel="stylesheet" href="css/style.css?v=20261028-1">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌟</text></svg>">
+</head>
+<body>
+
+    <!-- Main Header -->
+    <header class="main-header">
+        <div class="header-inner">
+            <a href="index.html" class="logo-area" style="text-decoration: none;">
+                <div class="logo-badge" style="background: linear-gradient(135deg, #10b981, #06b6d4);">📖</div>
+                <div class="logo-text">
+                    <h1>رِياضُ اللُّغَةِ العَرَبِيَّةِ</h1>
+                    <p>بإشراف ورعاية المعلم المتميز <strong>أ. علي دحان</strong> 🌟</p>
+                </div>
+            </a>
+
+            <!-- Student Gamified HUD Bar -->
+            <div class="student-stats-hud">
+                <div class="header-user-avatar" id="header-user-avatar" title="اضغط لتغيير صورتك الرمزية">🦁</div>
+                <div>
+                    <div class="stat-chip points" id="header-user-points-wrap">
+                        <span>💰</span>
+                        <span id="header-user-points">850</span>
+                        <span>نقطة</span>
+                    </div>
+                </div>
+                <div class="stat-chip level">
+                    <span id="header-user-level">مستوى 3</span>
+                </div>
+                <div class="stat-chip streak">
+                    <span id="header-user-streak">5 يوم 🔥</span>
+                </div>
+                <div class="stat-chip" style="color: var(--primary);">
+                    <span id="header-user-badges-count">3 أوسمة 🎖️</span>
+                </div>
+            </div>
+
+            <div class="header-controls">
+                <button class="btn-icon" id="btn-toggle-sound" title="كتم/تشغيل الصوت">🔊</button>
+                <a href="teacher.html" class="btn btn-outline btn-sm" title="بوابة المعلم أ. علي دحان والمشرف أ. مؤمن">
+                    👨‍🏫 بوابة الإدارة
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Navigation Bar -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-link-btn">🏠 الرئيسية</a>
+            <a href="weekly.html" class="nav-link-btn active">🌟 نشاط الأسبوع (أ. علي دحان)</a>
+            <a href="games.html" class="nav-link-btn">🎮 ألعاب اللغة العربية</a>
+            <a href="reading.html" class="nav-link-btn">📚 أسئلة كتاب القراءة</a>
+            <a href="workbook.html" class="nav-link-btn">🧠 كراسة التدريبات</a>
+            <a href="stories.html" class="nav-link-btn">📖 حكايات اللغة العربية</a>
+            <a href="cinema.html" class="nav-link-btn">🎬 سينما اللغة العربية</a>
+            <a href="leaderboard.html" class="nav-link-btn">🏆 صدارة المتميزين وطالب الشهر</a>
+            <a href="teacher.html" class="nav-link-btn">👨‍🏫 إدارة المعلم والصفوف</a>
+        </div>
+    </nav>
+
+    <!-- App Main Container -->
+    <main class="container">
+        <div class="mb-6 flex justify-between items-center flex-wrap gap-3">
+            <div>
+                <h2 class="text-3xl font-extrabold text-primary mb-1">📌 أنشطة من دروس الكتابين</h2>
+                <p class="text-muted">اختر تدريباً أسبوعياً مرتبطاً بدرس من كتاب القراءة أو كراسة التدريبات.</p>
+            </div>
+            <a href="index.html" class="btn btn-outline">← العودة للرئيسية</a>
+        </div>
+
+        <!-- Active Weekly Activity Box -->
+        <div id="weekly-activity-container"></div>
+
+        <section id="student-classroom" class="quiz-box-card mt-6">
+            <h2 class="text-2xl font-extrabold mb-2">💬 اسأل المعلم وتابع ردوده</h2>
+            <p class="text-muted mb-4">تصل إجابات الأنشطة وأسئلتك إلى لوحة المعلم، وتظهر ردوده وتفاعلاته هنا.</p>
+            <p class="text-sm text-muted mb-3">تظهر المحادثة للطالب صاحبها وللمعلم فقط.</p>
+            <p id="student-classroom-status" class="text-sm font-bold mb-3" role="status" aria-live="polite"></p>
+            <form id="student-question-form" class="grid gap-3 mb-5">
+                <select id="student-question-kind" class="form-control" aria-label="نوع الرسالة">
+                    <option value="question">سؤال للمعلم</option>
+                    <option value="chat">بدء محادثة</option>
+                </select>
+                <input id="student-question-title" class="form-control" type="text" maxlength="160" placeholder="عنوان السؤال أو المحادثة" required>
+                <textarea id="student-question-body" class="form-control" rows="3" maxlength="5000" placeholder="اكتب سؤالك أو رسالتك للمعلم..." required></textarea>
+                <button class="btn btn-primary" type="submit">📨 إرسال للمعلم</button>
+            </form>
+            <div id="student-threads" aria-live="polite"></div>
+        </section>
+
+        <!-- Dedicated Weekly Leaderboard -->
+        <div id="weekly-leaderboard-container"></div>
+    </main>
+
+    <!-- Avatar Picker Modal -->
+    <div id="avatar-modal" class="modal-backdrop hidden">
+        <div class="modal-dialog text-center">
+            <button class="modal-close-btn" id="btn-close-avatar-modal">&times;</button>
+            <h3 class="text-xl font-bold mb-2">اختر شخصيتك الرمزية</h3>
+            <div class="avatar-grid" id="avatar-options-grid"></div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/audio.js?v=20261028-1"></script>
+    <script src="js/confetti.js?v=20261028-1"></script>
+    <script src="js/data.js?v=20261028-1"></script>
+    <script src="js/reading-data.js?v=20261101-2"></script>
+    <script src="js/workbook-data.js?v=20261101-3"></script>
+    <script src="js/book-curriculum.js?v=20261101-1"></script>
+    <script src="js/storage.js?v=20261101-3"></script>
+    <script src="js/games.js?v=20261028-1"></script>
+    <script src="js/stories.js?v=20261028-1"></script>
+    <script src="js/cinema.js?v=20261028-1"></script>
+    <script src="js/leaderboard.js?v=20261028-1"></script>
+    <script src="js/teacher.js?v=20261101-2"></script>
+    <script src="js/app.js?v=20261028-1"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase-config.js?v=20261101-1"></script>
+    <script src="js/classroom.js?v=20261101-3"></script>
+</body>
+</html>
